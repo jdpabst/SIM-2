@@ -1,7 +1,50 @@
+/* #147587
+#fa7e5c
+#f3ece5
+#fecb5f */
+
+
+/* font-family: 'Shadows Into Light', cursive;
+font-family: 'Gloria Hallelujah', cursive;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Stylish', sans-serif;
+font-family: 'Open Sans Condensed', sans-serif; */
+
 
 .home{
     width: 100%;
     position: relative;
 }
 
+#header{
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+    padding: 0 35px;
+    align-items: center;
+    background:#F56A79;
+    /* background:#FF414D; */
+    /* background:#1AA687; */
+    /* background:#002d40; */
+    /* background: #D9ECF2; */
 
+}
+
+#header #home{
+    height: 40px;
+    width: 40px;
+    filter: invert(100%)
+}
+#header p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+}
+#header #add{
+    height: 35px;
+    width: 35px;
+    filter: invert(100%)
+}
