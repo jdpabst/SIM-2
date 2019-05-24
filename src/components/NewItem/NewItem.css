@@ -1,0 +1,29 @@
+.feed{
+    height: auto;
+    width: 100%;
+}
+
+#main-container{
+    max-height: 150px;
+    width: 95vw;
+    border: 1px solid #fdbb75;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 15px 15px;
+    margin-top: 15px;
+    background:#fb93bf;
+    background:#f2cac8;
+    background:#c36b85;
+    background:#fdbb75;
+}
+
+#title{
+    font-weight: 900;
+    margin-bottom: 7px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
+
+#content{
+    font-family: 'Nunito', sans-serif;
+}
