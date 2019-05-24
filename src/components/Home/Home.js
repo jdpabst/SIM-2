@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import plusSign from '../../images/plus.png';
 import home from '../../images/web-page-home.png';
+import NewItem from '../NewItem/NewItem';
 
 import './Home.css';
 
