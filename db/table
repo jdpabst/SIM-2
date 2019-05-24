@@ -3,3 +3,10 @@
      title varchar(255),
      item varchar (255)
  )
+
+ ADDED TEST ITEMS
+  insert into list (title, item)
+    values ('Pick up from Store', 'eggs, milk, yogurt, cereal')
+
+  insert into list (title, item)
+    values ('Cleaning List', 'Living room, laundry, dishes, litterboxes')
