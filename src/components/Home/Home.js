@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import plusSign from '../../images/plus.png';
 import home from '../../images/web-page-home.png';
-import NewItem from '../NewItem/NewItem';
+import Feed from '../Feed/Feed';
 
 import './Home.css';
 
@@ -20,7 +20,7 @@ class Home extends Component {
             {/* <div>Icons made by <a href="https://www.flaticon.com/authors/srip" title="srip">srip</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> */}
           </div>
           <div id="feed">
-            <NewItem />
+            <Feed />
           </div>
       </div>
     );

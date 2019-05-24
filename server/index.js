@@ -7,14 +7,16 @@ const app = express();
 app.use(express.json());
 app.use(express.static(__dirname + '/../public'));
 
-console.log(config.massiveConnection);
-massive(config.massiveConnection)
+console.log(config.connection);
+massive(config.connection)
   .then(db => {
     app.set('db', db);
   }).catch(err => {
     console.log(err);
   })
-  
+
+  const feed = require('./controllers/getFeed')
+  app.post('/api/items', feed.fetchFeed);
 
 const port = 8000;
 app.listen(port, () => {
