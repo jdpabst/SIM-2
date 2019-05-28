@@ -15,7 +15,7 @@ massive(config.connection)
     console.log(err);
   })
 
-  const feed = require('./controllers/getFeed')
+  const feed = require('./controllers/feed')
   app.post('/api/items', feed.fetchFeed);
 
 const port = 8000;

@@ -1,7 +1,6 @@
 
 function fetchFeed(req, res){
     let db = req.app.get('db');
-    console.log(db)
     // get all items from the db //
     db.query("select * from list", function(err, req){
         console.log(err);
@@ -12,6 +11,16 @@ function fetchFeed(req, res){
     })
 }
 
+function addItem(req, res){
+    let db = req.app.get('db');
+    // add item to db
+    db.list.insert({title: req.title, item: req.item})
+    .then((item) => {
+        res.status(200).send(item);
+    })
+}
+
 module.exports = {
     fetchFeed,
+    addItem
 }
