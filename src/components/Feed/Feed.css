@@ -11,10 +11,11 @@
     border-radius: 5px;
     padding: 15px 15px;
     margin-top: 15px;
-    background:#fb93bf;
+    /* background:#fb93bf;
     background:#f2cac8;
-    background:#c36b85;
+    background:#c36b85; */
     background:#fdbb75;
+    position: relative;
 }
 
 #title{
@@ -26,4 +27,29 @@
 
 #content{
     font-family: 'Nunito', sans-serif;
+}
+
+#main-container:hover{
+    background:#e69238;
+    z-index: 5
+}
+
+#delete{
+    opacity: 0;
+    height: 100%;
+    width: 95%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 10;
+}
+#delete img{
+    height: 25px;
+    width: 25px;
+}
+#delete:hover{
+    opacity: 100;
 }

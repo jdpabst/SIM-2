@@ -8,23 +8,7 @@ import './Home.css';
 
 
 class Home extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      items: [],
-    }
-    // this.addItem = this.addItem.bind(this);
-  }
-
-  // addItem(e){
-  //   console.log(e);
-  //   this.setState({
-  //     items: [...this.state.items, ...e.target.value]
-  //   })
-  //   console.log(this.state.items);
-  // }
-
-
+  
   render() {
     return (
       <div className="home">

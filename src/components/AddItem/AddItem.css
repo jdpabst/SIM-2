@@ -1,6 +1,6 @@
 .main-container{
     height: auto;
-    width: 100vw
+    width: 100vw;
 }
 
 .main-container #header{
@@ -21,7 +21,7 @@
 
 #input-container{
     position: relative;
-    height: 100vh;
+    height: auto;
     width: 100vw;
     padding-top: 15px;
 }
@@ -29,6 +29,10 @@
 input:focus{
     border: none;
     outline: none;
+}
+textarea:focus{
+    outline: none;
+    border: none;
 }
 
 #input-container #title{
@@ -45,15 +49,14 @@ input:focus{
     
 }
 
-#main-content{
+#main-content textarea{
+    font-size: 20px;
+    font-weight: 100;
     border: 1px solid #EAEAEA;
     height: auto;
     min-height: 80vh;
-    width: 95vw;
-    margin: 0 auto;
-}
-
-#main-content input{
-    font-size: 20px;
-    font-weight: 100;
+    width: 93.5vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }

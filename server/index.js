@@ -18,6 +18,7 @@ massive(config.connection)
   const feed = require('./controllers/feed')
   app.post('/api/items', feed.fetchFeed);
   app.post('/api/addItem', feed.addItem);
+  app.delete('/api/deleteItem/:id', feed.deleteItem);
 
 const port = 8000;
 app.listen(port, () => {

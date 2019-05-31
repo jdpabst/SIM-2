@@ -59,7 +59,7 @@ class AddItem extends Component {
                 </div>
 
                 <div id="main-content">
-                    <input placeholder="to do items go here..." onChange={(e) => this.setState({item: e.target.value})}/>
+                    <textarea placeholder="to do items go here..." onChange={(e) => this.setState({item: e.target.value})}/>
                 </div>
             </div>
         </div>

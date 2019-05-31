@@ -22,7 +22,22 @@ function addItem(req, res){
     })
 }
 
+function deleteItem(req, res){
+    let db= req.app.get('db');
+    let { id } = req.params;
+    db.list.destroy({id}, function(err, res){
+        if(err){
+            console.log(`error: ${err}`)            
+        } else{     
+            console.log(`response: ${res.data}`)
+        }
+    }).then((arr) => {
+        res.status(200).send(arr);
+    })
+}
+
 module.exports = {
     fetchFeed,
-    addItem
+    addItem,
+    deleteItem
 }
