@@ -16,4 +16,44 @@
 #header img{
     height: 40px;
     width: 40px;
+    filter: invert(100%)
+}
+
+#input-container{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 15px;
+}
+
+input:focus{
+    border: none;
+    outline: none;
+}
+
+#title{
+    border: 1px solid #EAEAEA;
+    height: auto;
+    min-height: 35px;
+    width: 95vw;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#title input{
+    font-size: 25px;
+    
+}
+
+#main-content{
+    border: 1px solid #EAEAEA;
+    height: auto;
+    min-height: 80vh;
+    width: 95vw;
+    margin: 0 auto;
+}
+
+#main-content input{
+    font-size: 20px;
+    font-weight: 100;
 }

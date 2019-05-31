@@ -6,6 +6,13 @@ import './AddItem.css';
 
 
 class AddItem extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            title: '',
+            itemDesc: ''
+        }
+    }
   
   render() {
     return (
