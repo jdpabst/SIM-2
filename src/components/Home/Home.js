@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import plusSign from '../../images/plus.png';
 import home from '../../images/web-page-home.png';
 import Feed from '../Feed/Feed';
-import AddItem from '../AddItem/AddItem'
 
 import './Home.css';
 
@@ -14,16 +13,16 @@ class Home extends Component {
     this.state = {
       items: [],
     }
-    this.addItem = this.addItem.bind(this);
+    // this.addItem = this.addItem.bind(this);
   }
 
-  addItem(e){
-    console.log(e);
-    this.setState({
-      items: [...this.state.items, ...e.target.value]
-    })
-    console.log(this.state.items);
-  }
+  // addItem(e){
+  //   console.log(e);
+  //   this.setState({
+  //     items: [...this.state.items, ...e.target.value]
+  //   })
+  //   console.log(this.state.items);
+  // }
 
 
   render() {

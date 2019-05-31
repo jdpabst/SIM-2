@@ -13,10 +13,12 @@ function fetchFeed(req, res){
 
 function addItem(req, res){
     let db = req.app.get('db');
-    // add item to db
-    db.list.insert({title: req.title, item: req.item})
-    .then((item) => {
-        res.status(200).send(item);
+    let { title, item } = req.body;
+
+    return db.list.insert({title, item})
+    .then((toDo) => {
+        console.log(toDo);
+        res.status(200).send(toDo);
     })
 }
 

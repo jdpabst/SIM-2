@@ -15,6 +15,9 @@ class Feed extends Component {
   }
 
   componentDidMount(){
+    this.setState({
+      feed: localStorage.feed ? JSON.parse(localStorage.feed) : []
+    })
     this.getFeed();
   }
 
@@ -24,6 +27,8 @@ class Feed extends Component {
       this.setState({
         feed: [...this.state.feed, ...res.data]
       })
+      // cache the feed locally //
+      localStorage.feed = JSON.stringify(res.data)
     })
   }
 

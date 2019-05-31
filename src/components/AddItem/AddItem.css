@@ -31,7 +31,7 @@ input:focus{
     outline: none;
 }
 
-#title{
+#input-container #title{
     border: 1px solid #EAEAEA;
     height: auto;
     min-height: 35px;
@@ -40,7 +40,7 @@ input:focus{
     margin-bottom: 10px;
 }
 
-#title input{
+#input-container #title input{
     font-size: 25px;
     
 }
