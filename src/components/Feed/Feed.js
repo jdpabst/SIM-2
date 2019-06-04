@@ -11,11 +11,16 @@ class Feed extends Component {
     super(props);
     this.state = {
       feed: [],
+      title: 'testing state title',
+      item: 'testing state item content',
+      visibility: 'hidden'
     }
 
     this.getFeed = this.getFeed.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.updateFeedAndCache = this.updateFeedAndCache.bind(this);
+    this.updateItemTitle = this.updateItemTitle.bind(this);
+    this.updateItemContent = this.updateItemContent.bind(this);
   }
 
   componentDidMount(){
@@ -53,6 +58,43 @@ class Feed extends Component {
     })
   }
 
+  updateItemPopupInfo(id){
+    let arr = this.state.feed;
+      for(var i = 0; i < arr.length; i++){
+        if(arr[i].id === id){
+          this.setState({
+            title: arr[i].title,
+            item: arr[i].item,
+            visibility: 'visible'
+          })
+        }
+      }
+      console.log(this.state)
+  }
+
+  updateItemTitle(e){
+    this.setState({
+      title: e.target.value
+    })
+  }
+
+  updateItemContent(e){
+    this.setState({
+      item: e.target.value
+    })
+  }
+
+  updateItemOnTable(id){
+    let arr = this.state.feed;
+    axios.post(`/api/updateItem/${id}`).then( res => {
+      for(var i = 0; i < arr.length; i++){
+        if(arr[i].id === id){
+          //  how do i update the backend from here?
+        }
+      }
+    })
+  }
+
 // outsourcing this setState functionality happening multiple times to ONE function 
   updateFeedAndCache(newFeed){
     this.setState({
@@ -66,14 +108,30 @@ class Feed extends Component {
 
   render() {
     let arr = this.state.feed;
+    let style = {
+      visibility: this.state.visibility
+    }
     return (
       <div className="feed">
+
+        <div id='update-form' style={style}>
+          <input id='title' alt='title' type='text' value={this.state.title} onChange={this.updateItemTitle}/>
+          <textarea id='item' alt='to do item' value={this.state.item} onChange={this.updateItemContent}/>
+          <button id='update-item-save-button' alt='save' >SAVE</button> 
+       </div>
+
         {arr.map( (item, id) => {
           return <div key={ id } id='main-container'>
+
           <div className='modifying-icons'>
-            <div className='icon' id='update'><img src={update} /></div>
-            <div className='icon' id="delete"><img src={trash} onClick={() => this.deleteItem(item.id)} /></div>
+            <div className='icon' id='update'>
+              <img src={update} onClick={() => this.updateItemPopupInfo(item.id)} alt='update' />
+            </div>
+            <div className='icon' id="delete">
+              <img src={trash} onClick={() => this.deleteItem(item.id)} alt='delete' />
+            </div>
           </div>
+
           <p id='title'>{item.title}</p>
           <p id='content'>{item.item}</p>
         </div>

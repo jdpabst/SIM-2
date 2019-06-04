@@ -3,6 +3,58 @@
     width: 100%;
 }
 
+input{
+    width: 100%;
+}
+
+#update-form{
+    height: 100%;
+    width: 100%;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+}
+
+#update-form #title{
+    min-height: 40px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: 1px solid #EAEAEA;
+    margin-top: 20px;
+    padding-left: 8px;
+    font-size: 27px;
+}
+
+#update-form #item{
+    border: 1px solid #EAEAEA;
+    min-height: 75vh;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 10px 0 10px 8px;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+#update-item-save-button{
+    height: 65px;
+    width: 150px;
+    border: 1px solid #f2cac8;
+    background:#f2cac8;
+    border-radius: 3px;
+    color: white;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+    display: block;
+}
+
 #main-container{
     max-height: 150px;
     width: 95vw;
@@ -37,7 +89,7 @@
 .modifying-icons{
     opacity: 0;
     height: 100%;
-    width: 96%;
+    width: 98%;
     position: absolute;
     top: 0;
     left: 0;
@@ -45,10 +97,10 @@
     justify-content: flex-end;
     align-items: center;
     z-index: 10;
-    border: 1px solid black;
 }
 .icon{
-    z-index: 15
+    z-index: 15;
+    padding: 0 10px;
 }
 .icon img{
     height: 25px;
