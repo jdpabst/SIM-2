@@ -42,7 +42,7 @@ class AddItem extends Component {
         console.log(`title: ${this.state.title} and item: ${this.state.item}`)
         axios.post('/api/addItem', {title, item})
             .then((res) => {
-                console.log(res.data);
+                // console.log(res.data);
             })
     }
   

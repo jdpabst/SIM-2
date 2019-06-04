@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import trash from '../../images/trash.png';
+import update from '../../images/pencil.png';
 
 import './Feed.css';
 
@@ -28,7 +29,6 @@ class Feed extends Component {
   getFeed(){
     let arr = this.state.feed;
     axios.post('/api/items').then( res => {
-      console.log(res.data);
       for(var i = 0; i < arr.length; i++){
         for(var j = 0; j < res.data.length; j++){
           if(arr[i].id === res.data[j].id){
@@ -37,17 +37,13 @@ class Feed extends Component {
           }
         }
       }
-
       this.updateFeedAndCache([...this.state.feed, ...res.data]);
-     
     })
   }
 
   deleteItem(id){
-    console.log(id);
     let arr = this.state.feed;
     axios.delete(`/api/deleteItem/${id}`).then( res => {
-      console.log(res.data);
       for(var i = arr.length - 1; i >= 0; i--){
         if(arr[i].id === id){
           arr.splice(i, 1);
@@ -70,12 +66,14 @@ class Feed extends Component {
 
   render() {
     let arr = this.state.feed;
-    console.log(arr);
     return (
       <div className="feed">
         {arr.map( (item, id) => {
           return <div key={ id } id='main-container'>
-          <div id="delete"><img src={trash} onClick={() => this.deleteItem(item.id)} /></div>
+          <div className='modifying-icons'>
+            <div className='icon' id='update'><img src={update} /></div>
+            <div className='icon' id="delete"><img src={trash} onClick={() => this.deleteItem(item.id)} /></div>
+          </div>
           <p id='title'>{item.title}</p>
           <p id='content'>{item.item}</p>
         </div>
