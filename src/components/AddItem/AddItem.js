@@ -18,6 +18,7 @@ class AddItem extends Component {
             this.handleTitle = this.handleTitle.bind(this);
             this.handleItem = this.handleItem.bind(this);
             this.addToDb = this.addToDb.bind(this);
+            this.clearState = this.clearState.bind(this);
     }
 
     handleTitle(e){
@@ -45,13 +46,22 @@ class AddItem extends Component {
                 // console.log(res.data);
             })
     }
+
+    clearState(){
+        this.setState({
+            title: '',
+            item: ''
+        }, () => {
+            document.getElementById('home-bttn').click();
+        })
+    }
   
   render() {
     return (
         <div className='main-container'>
             <div id="header">
-                <Link to='/'> <img src={home} alt='home' /> </Link> 
-                <img src={trash} alt='delete'/>
+                <Link to='/'> <img src={home} alt='home' id='home-bttn'/> </Link> 
+                <img src={trash} alt='delete' onClick={this.clearState}/>
             </div>
             <div id="input-container">
                 <div id="title">

@@ -30,8 +30,8 @@ class Feed extends Component {
     this.setState({
       // second part of cacheing the feed to help initial load time //
       feed: localStorage.feed ? JSON.parse(localStorage.feed) : []
-    })
-    this.getFeed();
+    }, this.getFeed)
+    
   }
 
   getFeed(){
@@ -39,7 +39,7 @@ class Feed extends Component {
     axios.post('/api/items').then( res => {
       for(var i = 0; i < res.data.length; i++){
         for(var j = 0; j < arr.length; j++){
-          if(res.data[i].id === arr[j].id){
+          if(res.data[i].id == arr[j].id){
             arr.splice(j,1);
             j--;
           }
