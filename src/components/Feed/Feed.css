@@ -1,6 +1,9 @@
 .feed{
     height: auto;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
 }
 
 input{

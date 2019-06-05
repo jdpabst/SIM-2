@@ -35,8 +35,21 @@ function deleteItem(req, res){
     })
 }
 
+function updateItem(req, res){
+    console.log('updateItem hit in backend')
+    let db = req.app.get('db');
+    let { id } = req.params;
+    db.list.update({id}, {
+        title: req.body.title,
+        item: req.body.item
+    }).then((arr) => {
+        res.status(200).send(arr);
+    })
+}
+
 module.exports = {
     fetchFeed,
     addItem,
-    deleteItem
+    deleteItem,
+    updateItem
 }

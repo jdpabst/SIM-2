@@ -21,9 +21,12 @@ class Feed extends Component {
     this.updateFeedAndCache = this.updateFeedAndCache.bind(this);
     this.updateItemTitle = this.updateItemTitle.bind(this);
     this.updateItemContent = this.updateItemContent.bind(this);
+    this.updateItemOnTable = this.updateItemOnTable.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount(){ 
+    // do i need to do something here to avoid duplicates? //
+    
     this.setState({
       // second part of cacheing the feed to help initial load time //
       feed: localStorage.feed ? JSON.parse(localStorage.feed) : []
@@ -34,10 +37,10 @@ class Feed extends Component {
   getFeed(){
     let arr = this.state.feed;
     axios.post('/api/items').then( res => {
-      for(var i = 0; i < arr.length; i++){
-        for(var j = 0; j < res.data.length; j++){
-          if(arr[i].id === res.data[j].id){
-            res.data.splice(j,1);
+      for(var i = 0; i < res.data.length; i++){
+        for(var j = 0; j < arr.length; j++){
+          if(res.data[i].id === arr[j].id){
+            arr.splice(j,1);
             j--;
           }
         }
@@ -65,11 +68,11 @@ class Feed extends Component {
           this.setState({
             title: arr[i].title,
             item: arr[i].item,
-            visibility: 'visible'
+            visibility: 'visible',
+            id: arr[i].id
           })
         }
       }
-      console.log(this.state)
   }
 
   updateItemTitle(e){
@@ -84,15 +87,17 @@ class Feed extends Component {
     })
   }
 
-  updateItemOnTable(id){
-    let arr = this.state.feed;
-    axios.post(`/api/updateItem/${id}`).then( res => {
-      for(var i = 0; i < arr.length; i++){
-        if(arr[i].id === id){
-          //  how do i update the backend from here?
-        }
-      }
+  updateItemOnTable(){
+    let {title, item} = this.state;
+    // update the item on the table by clicking on the button //
+    axios.post(`/api/updateItem/${this.state.id}`, {title, item}).then( res => {
+      console.log('item update on db');
+      this.setState({
+        visibility: 'hidden'
+      })
     })
+    console.log(this.state)
+    this.getFeed();
   }
 
 // outsourcing this setState functionality happening multiple times to ONE function 
@@ -117,7 +122,7 @@ class Feed extends Component {
         <div id='update-form' style={style}>
           <input id='title' alt='title' type='text' value={this.state.title} onChange={this.updateItemTitle}/>
           <textarea id='item' alt='to do item' value={this.state.item} onChange={this.updateItemContent}/>
-          <button id='update-item-save-button' alt='save' >SAVE</button> 
+          <button id='update-item-save-button' alt='save' onClick={this.updateItemOnTable} >SAVE</button> 
        </div>
 
         {arr.map( (item, id) => {

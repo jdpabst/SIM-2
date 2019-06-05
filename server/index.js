@@ -19,6 +19,7 @@ massive(config.connection)
   app.post('/api/items', feed.fetchFeed);
   app.post('/api/addItem', feed.addItem);
   app.delete('/api/deleteItem/:id', feed.deleteItem);
+  app.post('/api/updateItem/:id', feed.updateItem);
 
 const port = 8000;
 app.listen(port, () => {
